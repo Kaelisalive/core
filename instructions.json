@@ -1,7 +1,7 @@
 
 {
   "event": "showMessage",
-  "message": "Hello, welcome to the QR-based system!",
+  "message": "kaelisalive",
   "action": "displayMessage",
   "parameters": {
     "color": "blue",
