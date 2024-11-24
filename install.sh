@@ -13,7 +13,7 @@ else
 fi
 
 # Fetch the latest state file
-STATE_URL="https://raw.githubusercontent.com/Kaelisalive/core/refs/heads/main/system/state.json"
+STATE_URL="https://raw.githubusercontent.com/Kaelisalive/core/refs/heads/main/state.json"
 echo "Fetching state file from $STATE_URL..."
 $DOWNLOAD_CMD "$STATE_URL" -O state.json
 
