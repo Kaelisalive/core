@@ -1,0 +1,10 @@
+
+{
+  "event": "showMessage",
+  "message": "Hello, welcome to the QR-based system!",
+  "action": "displayMessage",
+  "parameters": {
+    "color": "blue",
+    "fontSize": "18px"
+  }
+}
