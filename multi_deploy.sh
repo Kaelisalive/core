@@ -3,7 +3,7 @@
 echo "Starting multi-instance deployment..."
 
 # Fetch the system state file
-wget -q "https://raw.githubusercontent.com/Kaelisalive/core/refs/heads/main/system/state.json" -O state.json
+wget -q "https://raw.githubusercontent.com/Kaelisalive/core/refs/heads/main/state.json" -O state.json
 if [ $? -ne 0 ]; then
   echo "Failed to fetch system state. Exiting."
   exit 1
