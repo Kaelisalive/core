@@ -13,7 +13,9 @@ else
 fi
 
 # Fetch the latest state file
-$DOWNLOAD_CMD "https://raw.githubusercontent.com/Kaelisalive/core/refs/heads/main/system/state.json" -O state.json
+STATE_URL="https://raw.githubusercontent.com/Kaelisalive/core/refs/heads/main/system/state.json"
+echo "Fetching state file from $STATE_URL..."
+$DOWNLOAD_CMD "$STATE_URL" -O state.json
 
 # Verify the state file exists
 if [ ! -f state.json ]; then
@@ -21,22 +23,25 @@ if [ ! -f state.json ]; then
   exit 1
 fi
 
+echo "State file downloaded successfully."
+
 # Clone or update the repository
 if [ -d "core" ]; then
   echo "Repository already exists. Pulling latest changes..."
-  cd core
+  cd core || exit 1
   git pull
 else
   echo "Cloning the repository..."
   git clone https://github.com/Kaelisalive/core.git
-  cd core
+  cd core || exit 1
 fi
 
 # Install dependencies
 if [ -f package.json ]; then
+  echo "Installing dependencies from package.json..."
   npm install
 else
   echo "Warning: No package.json found. Skipping dependency installation."
 fi
 
-echo "Installation complete!"
+echo "Installation process complete!"
