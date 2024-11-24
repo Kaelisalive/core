@@ -25,14 +25,26 @@ fi
 
 echo "State file downloaded successfully."
 
+# Parse the state file to extract repository URL (optional, if dynamic repo is needed)
+if command -v jq &> /dev/null; then
+  REPO_URL=$(jq -r '.config.repository' state.json)
+  if [ -z "$REPO_URL" ]; then
+    echo "Error: Repository URL not found in state.json. Using default."
+    REPO_URL="https://github.com/Kaelisalive/core.git"
+  fi
+else
+  echo "Warning: jq is not installed. Using default repository URL."
+  REPO_URL="https://github.com/Kaelisalive/core.git"
+fi
+
 # Clone or update the repository
 if [ -d "core" ]; then
   echo "Repository already exists. Pulling latest changes..."
   cd core || exit 1
   git pull
 else
-  echo "Cloning the repository..."
-  git clone https://github.com/Kaelisalive/core.git
+  echo "Cloning the repository from $REPO_URL..."
+  git clone "$REPO_URL" core
   cd core || exit 1
 fi
 
