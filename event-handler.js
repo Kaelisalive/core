@@ -3,7 +3,7 @@ const fetch = require('node-fetch'); // You'll need the 'node-fetch' library ins
 
 // Fetch the instructions from the hosted JSON file
 async function fetchInstructions() {
-  const response = await fetch('https://example.com/instructions.json'); // Replace with the actual URL
+  const response = await fetch('https://raw.githubusercontent.com/kaelisalive/instructions.json'); // Replace with the actual URL
   const instructions = await response.json();
 
   // Execute actions based on the instructions
