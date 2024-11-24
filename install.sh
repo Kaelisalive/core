@@ -13,7 +13,7 @@ else
 fi
 
 # Fetch the latest state file
-$DOWNLOAD_CMD "https://raw.githubusercontent.com/Kaelisalive/core/refs/heads/main/system/state.json" -O state.json
+$DOWNLOAD_CMD "https://raw.githubusercontent.com/Kaelisalive/core/refs/heads/main/kael.js" -O state.json
 
 # Verify the state file exists
 if [ ! -f state.json ]; then
